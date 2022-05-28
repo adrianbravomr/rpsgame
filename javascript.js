@@ -110,16 +110,19 @@ function game(rounds=5){
     let choice1;
     let choice2;
     let roundN=1;
-    for (roundN;roundN<=rounds;roundN++){
+    while (true){
         //let choice1 = userChoiceNumber();
         choice1 = userChoiceWord();
         choice2 = randomChoice();
 
         evalChoices(choice1,choice2);
-
+        if (user1Points>=rounds || user2Points>=rounds){
+            break;
+        }
+        roundN++;
     }
 
-    console.log(`END OF GAME,\n${rounds} Rounds\nUser 1 Points: ${user1Points}\nUser 2 Points: ${user2Points}`);
+    console.log(`END OF GAME,\n${roundN} Rounds\nUser 1 Points: ${user1Points}\nUser 2 Points: ${user2Points}`);
 
 }
 
